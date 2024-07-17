@@ -17,6 +17,7 @@ const engineTypes = [
   "large",
   "chuncko"
 ]
+// NOTE we will use this object to store values from our form input
 const editableCarData = ref({
   make: '',
   model: '',
@@ -31,6 +32,8 @@ const editableCarData = ref({
 async function createCar() {
   try {
     await carsService.createCar(editableCarData.value) // NOTE this is a ref object, we have to pass down the value stored inside of the ref
+
+    // NOTE this resets all of the values inside of the ref object, which essentially clears our form
     editableCarData.value = {
       make: '',
       model: '',
@@ -41,6 +44,8 @@ async function createCar() {
       color: '#000000',
       imgUrl: ''
     }
+
+    // NOTE this closes the modal
     Modal.getOrCreateInstance('#carFormModal').hide()
   } catch (error) {
     Pop.error(error)
@@ -53,7 +58,7 @@ async function createCar() {
   <!-- NOTE .prevent will call event.preventDefault() -->
   <form @submit.prevent="createCar()">
     <div class="form-floating mb-3">
-      <!-- NOTE v-model sets up tow data binding between the input's value and a variable declared in the script -->
+      <!-- NOTE v-model sets up two-way data binding between the input's value and a variable declared in the script -->
       <!-- this input is bound to the make property in our ref object -->
       <input v-model="editableCarData.make" type="text" class="form-control" id="make" placeholder="Car Make..."
         required maxlength="500">
@@ -89,7 +94,7 @@ async function createCar() {
         <div class="mb-3">
           <label for="color" class="form-label">Color picker</label>
           <input v-model="editableCarData.color" type="color" class="form-control form-control-color" id="color"
-            value="#000000" title="Choose your color">
+            title="Choose your color">
         </div>
       </div>
       <div class="col-10">
