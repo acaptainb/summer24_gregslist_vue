@@ -1,4 +1,20 @@
+export class House {
+    constructor(data) {
+        this.id = data.id || data._id
+        this.bedrooms = data.bedrooms
+        this.levels = data.levels
+        this.imgUrl = data.imgUrl
+        this.bathrooms = data.bathrooms
+        this.year = data.year
+        this.price = data.price
+        this.description = data.description
+        this.creatorId = data.creatorId
+        this.creator = data.creator
+        this.createdId = new Date(data.createdAt)
+        this.updatedId = new Date(data.updatedAt)
 
+    }
+}
 
 
 
