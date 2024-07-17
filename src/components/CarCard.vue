@@ -10,7 +10,6 @@ defineProps({ carProp: { type: Car } })
 
 const account = computed(() => AppState.account)
 
-
 async function destroyCar(carId) {
   try {
     const wantsToDelete = await Pop.confirm('Are you sure you want to delete your car?')

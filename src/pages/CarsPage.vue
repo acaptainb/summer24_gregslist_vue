@@ -35,9 +35,9 @@ async function getCars() {
         <div class="d-flex align-items-center gap-3">
           <h1>Cars</h1>
           <!-- NOTE only show button if there is an account object in the appstate (if you are logged in) -->
-          <button v-if="account" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#carFormModal">Create
-            Car
-            Listing</button>
+          <button v-if="account" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#carFormModal">
+            Create Car Listing
+          </button>
         </div>
       </div>
     </section>
@@ -49,7 +49,6 @@ async function getCars() {
     </section>
   </div>
 
-  <!-- TODO show off slots -->
   <!-- NOTE if your prop is a string, you don't have to bind a value -->
   <FormModal modalId="carFormModal">
     <!-- targets the slot with name of 'modalHeader' and injects whatever is between the template tags -->
