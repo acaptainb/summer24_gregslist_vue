@@ -10,8 +10,8 @@ export class House {
         this.description = data.description
         this.creatorId = data.creatorId
         this.creator = data.creator
-        this.createdId = new Date(data.createdAt)
-        this.updatedId = new Date(data.updatedAt)
+        this.createdAt = new Date(data.createdAt)
+        this.updatedAt = new Date(data.updatedAt)
 
     }
 }
